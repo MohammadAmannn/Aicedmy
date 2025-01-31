@@ -23,3 +23,11 @@ export const Chapters=pgTable('chapters',{
 
 
 })
+
+export const LiveSessions = pgTable("live_sessions", {
+  id: serial("id").primaryKey(),
+  courseId: varchar("courseId").notNull(),
+  link: varchar("link").notNull(),
+  createdAt: varchar("createdAt").notNull(),
+});
+

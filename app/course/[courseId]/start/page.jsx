@@ -4,8 +4,14 @@ import { Chapters, CourseList } from "@/configs/schema";
 import { and, eq } from "drizzle-orm";
 import React, { useEffect, useState } from "react";
 import ChapterListCard from "./_components/ChapterListCard";
-import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import Chaptercontent from "./_components/Chapter_content";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { useRouter } from 'next/router';
+import { motion, AnimatePresence } from "framer-motion";
+import { Cross1Icon, HamburgerMenuIcon, PieChartIcon } from "@radix-ui/react-icons";
+
+
 
 const CourseStart = ({ params }) => {
   const [course, setCourse] = useState(); // Initialize as null
@@ -31,13 +37,13 @@ const CourseStart = ({ params }) => {
       setCourse(result[0]);
 
       // Automatically select the first chapter and fetch its content
-      // const firstChapter = result[0]?.courseOutput?.chapters[0]; // Adjusted based on structure
-      // if (firstChapter) {
-      //   setSelectedChapter(firstChapter); // Set first chapter
-      //   GetSelectedChapterContent(firstChapter?.courseId); // Fetch full content of the first chapter
-      //   console.log(firstChapter);
+      const firstChapter = result[0]?.courseOutput?.chapters[0]; // Adjusted based on structure
+      if (firstChapter) {
+        setSelectedChapter(firstChapter); // Set first chapter
+        GetSelectedChapterContent(firstChapter?.courseId); // Fetch full content of the first chapter
+        console.log(firstChapter);
 
-      // }
+      }
     } catch (error) {
       console.error("Error fetching course:", error);
     }
@@ -72,10 +78,13 @@ const CourseStart = ({ params }) => {
     },
   };
 
+  // Function to open the link in a new tab
+  const openAnalysisInNewTab = () => {
+    window.open("/Ai/analysis", "_blank");
+  };
+
   return (
     <div>
-      
-
       {/* Toggle button for sidebar on mobile */}
       <div className="md:hidden p-4">
         <button
@@ -122,6 +131,19 @@ const CourseStart = ({ params }) => {
       {/* Content of each chapter */}
       <div className="md:ml-64">
         <Chaptercontent chapter={selectedChapter} content={chapterContent} />
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          className="fixed bottom-8 right-8"
+        >
+          <Button
+            onClick={openAnalysisInNewTab}
+            className="rounded-full px-6 py-5 shadow-lg bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600"
+          >
+            <PieChartIcon className="mr-2 h-5 w-5" />
+            AI Analysis
+          </Button>
+        </motion.div>
       </div>
 
       {/* Overlay to close the sidebar when clicking outside on mobile */}

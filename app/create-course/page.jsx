@@ -61,7 +61,7 @@ function CreateCourse() {
     setError("");
     try {
       const result = await GenerateCourse_Ai.sendMessage(FINAL_PROMPT);
-      const response = await result.response?.text();
+      const response = result.response?.text();
       const parsedResponse = JSON.parse(response);
 
       console.log(parsedResponse);

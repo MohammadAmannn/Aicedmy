@@ -42,6 +42,7 @@ function Page({ params }) {
         <CourseBasic course={course} /> {/* Pass course data */}
         <CourseDetails course={course} /> {/* Pass course data */}
         <ChapterList course={course} /> {/* Pass course data */}
+        <h2>hdhdhdhhd</h2>
       </div>
     </div>
   );
