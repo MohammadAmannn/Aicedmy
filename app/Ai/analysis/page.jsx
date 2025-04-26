@@ -132,7 +132,7 @@ export default function AnalysisPage() {
 
               {response && (
                 <div className="mt-4 p-4 bg-gray-700/50 rounded-lg animate-fade-in">
-                  <h3 className="text-purple-400 font-semibold mb-2">AI Analysis:</h3>
+                  <h3 className="text-purple-400 font-semibold mb-2">Assist Buddy:</h3>
                   <p className="text-gray-100 whitespace-pre-wrap leading-relaxed">
                     {response.replace(/\*\*\*\*/g, '').replace(/\\n/g, '\n')}
                   </p>
