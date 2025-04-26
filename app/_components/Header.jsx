@@ -6,12 +6,7 @@ import { useState } from "react";
 function _Header() {
   const [expanded, setExpanded] = useState(false);
 
-  const navItems = [
-    { name: "Features", href: "#features" },
-    { name: "About", href: "#about" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "Contact", href: "#contact" },
-  ];
+ 
 
   const menuVariants = {
     open: { opacity: 1, y: 0, transition: { staggerChildren: 0.1 } },
@@ -33,33 +28,17 @@ function _Header() {
       <header className="py-4 sm:py-6">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Logo */}
-            <motion.div whileHover={{ scale: 1.05 }} className="shrink-0">
+          
+             <motion.div whileHover={{ scale: 1.05 }} className="shrink-0">
               <Link href="/" className="flex items-center gap-2">
-                <img
-                  className="w-auto h-9"
-                  src="https://landingfoliocom.imgix.net/store/collection/dusk/images/logo.svg"
-                  alt="Logo"
-                />
-                <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                  EduAI
+                
+                 <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                  Aicademy
                 </span>
               </Link>
             </motion.div>
 
-            {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-8">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="relative text-gray-300 hover:text-white transition-colors text-sm font-medium group"
-                >
-                  {item.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-gradient-to-r from-cyan-400 to-blue-500 transition-all group-hover:w-full" />
-                </Link>
-              ))}
-            </nav>
+         
 
             {/* Mobile Menu Button */}
             <motion.button
