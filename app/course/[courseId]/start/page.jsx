@@ -141,8 +141,7 @@ const CourseStart = ({ params }) => {
             className="rounded-full px-6 py-5 shadow-lg bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600"
           >
             <PieChartIcon className="mr-2 h-5 w-5" />
-            AI Analysis
-          </Button>
+Assist Buddy          </Button>
         </motion.div>
       </div>
 
